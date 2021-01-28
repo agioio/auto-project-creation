@@ -1,0 +1,28 @@
+#!/bin/bash
+
+mydir="${0%/*}"
+acc="user" #change to your github username
+
+arg=$@
+
+function myfunc()
+{
+    local IFS="$1"
+    shift
+    myresult="$*"
+}
+
+myfunc - $arg
+
+create () {
+    cd $mydir
+    python3 $mydir/new_project.py $arg
+    cd ..
+    cd $myresult    #myresult is the project name, if in another folder specify folder
+    git init
+    git remote add origin https://github.com/$acc/$myresult.git
+    git pull origin main
+    code .      #code . opens the project folder in vscode,change or remove if code doesnt work
+}
+
+create
