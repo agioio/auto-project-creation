@@ -1,3 +1,9 @@
+# DESCRIPTION
+This code is an automation task to create a new project
+* It creates a directory of the project in a folder you specify in the code
+* It creates a github repo and initializes it
+* It updates your local repo after initialize
+
 # PREREQUISITES
 * ```cd to/project/directory/```
 * pip3 install -r requirements.txt
